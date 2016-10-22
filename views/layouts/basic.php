@@ -1,15 +1,27 @@
+<?php
+use app\assets\AppAsset;
+use yii\bootstrap\NavBar;
+
+
+AppAsset::register($this);
+$this->beginPage();
+?>
+
+
+
 <!DOCTIPE html>
-<html>
+<html lang="<?=Yii::$app->language ?>">
 <head>
-       <title></title>
+       <meta charset="<?=Yii::$app->charset ?>">
+       <title><?=Yii::$app->name ?></title>
+       <?php $this->head(); ?>
 </head>
 <body>
-<p>Верхняя часть</p>
+<?php $this->beginBody(); ?>
+<div class="wrap">
 
-<?= $content ?>
 
-
-<p>Нижняя часть</p>
-
+</div>
+<?php $this->endBody(); ?>
 </body>
-<html>
+</html>
