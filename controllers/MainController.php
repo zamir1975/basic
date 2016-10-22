@@ -44,11 +44,21 @@ return $this->render(
 
 }
 
+    /**
+     *
+     */
     public function actionSearch()
     {
         $search = Yii::$app->request->post('search');
+        return $this->render(
+        'search',
+    [
+        'search'=>$search
+    ]
+
+    );
 
     }
-    }
+
 
 }

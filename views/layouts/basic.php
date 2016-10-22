@@ -1,6 +1,8 @@
 ﻿<?php
 use app\assets\AppAsset;
 use yii\bootstrap\NavBar;
+use yii\bootstrap\ActiveForm;
+use yii\helpers\Html;
 
 /*
  *  @var $content string
@@ -29,6 +31,35 @@ $this->beginPage();
            ]
 
        );
+       ActiveForm::begin(
+           [
+                  'action'=>['main/search'],
+                  'method'=>'post',
+                  'options'=>[
+                         'class'=>'navbar-form navbar-right'
+                  ]
+           ]
+       );
+       echo '<div class="input-group input-group-sm">';
+       echo Html::input(
+           'type: text',
+           'search',
+           '',
+           [
+                  'placeholder'=>'Найти ...',
+                  'class'=>'form-control'
+           ]
+
+       );
+       echo '<span class="input-group-btn">';
+       echo Html::submitButton(
+           '<span class="glyphicon glyphicon-search"></span>',
+           [
+                  'class'=>'btn btn-success'
+           ]
+       );
+       echo '</span></div>';
+       ActiveForm::end();
        NavBar::end();
        ?>
 <?= $content ?>
