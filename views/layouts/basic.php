@@ -1,8 +1,10 @@
 ﻿<?php
 use app\assets\AppAsset;
 use yii\bootstrap\NavBar;
+use yii\bootstrap\Nav;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
+use yii\bootstrap\Modal;
 
 /*
  *  @var $content string
@@ -60,6 +62,35 @@ $this->beginPage();
        );
        echo '</span></div>';
        ActiveForm::end();
+
+       echo Nav::widget([
+         'items'=>[
+             [
+                 'label'=>'Главная<span class="glyphicon glyphicon-home"></span>',
+                 'url'=>['main/index']
+             ],
+             '<li>
+              <a data-toggle="modal" data-target="#modal" style="cursor: pointer">
+
+              О проекте<span class="glyphicon glyphicon-question-sign"
+</a>
+             </li>'
+         ],
+       'encodeLabels'=>false,
+       'options'=>[
+           'class'=>'navbar-nav navbar-right'
+           ]
+       ]);
+
+       Modal::begin([
+
+           'header'=>'<h2>phpNT</h2>',
+           'id'=>'modal'
+
+       ]);
+       echo'Проект для продвинутых PHP разработчиков.';
+       Modal::end();
+
        NavBar::end();
        ?>
 <?= $content ?>
