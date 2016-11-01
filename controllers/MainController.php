@@ -27,6 +27,14 @@ class MainController extends \yii\web\Controller
 public function actionReg() {
 
 $model=new RegForm();
+
+    if(Yii::$app->request->post()):
+    echo '<pre>';
+    print_r(Yii::$app->request->post());
+    echo '</pre>';
+    Yii::$app->end();
+        endif;
+
 return $this->render(
 'reg',
 ['model'=>$model]
@@ -37,6 +45,14 @@ return $this->render(
 public function actionLogin() {
 
 $model=new LoginForm();
+
+    if(Yii::$app->request->post()):
+        echo '<pre>';
+        print_r(Yii::$app->request->post());
+        echo '</pre>';
+        Yii::$app->end();
+    endif;
+
 return $this->render(
 'login',
 ['model'=>$model]

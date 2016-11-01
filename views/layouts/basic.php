@@ -69,12 +69,33 @@ $this->beginPage();
                  'label'=>'Главная<span class="glyphicon glyphicon-home"></span>',
                  'url'=>['main/index']
              ],
+             [
+                 'label'=>'Из коробки<span class="glyphicon glyphicon-inbox"></span>',
+                 'items'=>[
+                     '<li class=dropdown-header">Расширения</li>',
+                      '<li class="devider"></li>',
+                     [
+                         'label'=>'Перейти к просмотру',
+                         'url'=>['widget-test/index']
+                     ]
+                 ]
+             ],
              '<li>
               <a data-toggle="modal" data-target="#modal" style="cursor: pointer">
 
-              О проекте<span class="glyphicon glyphicon-question-sign"
+              О проекте <span class="glyphicon glyphicon-question-sign"></span>
 </a>
-             </li>'
+             </li>',
+             [
+                 'label'=>'Регистрация',
+                 'url'=>['main/reg']
+
+             ],
+             [
+                 'label'=>'Войти',
+                 'url'=>['main/login']
+
+             ]
          ],
        'encodeLabels'=>false,
        'options'=>[
