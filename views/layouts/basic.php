@@ -95,6 +95,11 @@ $this->beginPage();
                  'label'=>'Войти',
                  'url'=>['main/login']
 
+             ],
+             [
+                 'label'=>'Загрузка фото',
+                 'url'=>['main/upload']
+
              ]
          ],
        'encodeLabels'=>false,

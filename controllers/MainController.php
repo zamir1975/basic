@@ -28,11 +28,14 @@ public function actionReg() {
 
 $model=new RegForm();
 
-    if(Yii::$app->request->post()):
-    echo '<pre>';
-    print_r(Yii::$app->request->post());
-    echo '</pre>';
-    Yii::$app->end();
+    if($model->load(Yii::$app->request->post()) && $model->validate()):
+    if($model->reg()):
+        return $this->goHome();
+    else:
+        Yii::$app->session->session->setFlash('error','Возникла ошибка при регистрации.');
+        Yii::error('Ошибка при регистрации');
+        return $this->refresh();
+        endif;
         endif;
 
 return $this->render(
@@ -46,11 +49,9 @@ public function actionLogin() {
 
 $model=new LoginForm();
 
-    if(Yii::$app->request->post()):
-        echo '<pre>';
-        print_r(Yii::$app->request->post());
-        echo '</pre>';
-        Yii::$app->end();
+    if($model->load(Yii::$app->request->post()) && $model->login()):
+        return $this->goBack();
+
     endif;
 
 return $this->render(
